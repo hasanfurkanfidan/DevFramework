@@ -1,0 +1,9 @@
+﻿@model Devframework.Northwind.Web.Models.ViewModels.ProductListViewModel
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model.Products)
+{
+    @item.ProductName
+}

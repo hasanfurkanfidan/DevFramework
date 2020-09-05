@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevFramework.Core.Aspects.PostSharp
+namespace DevFramework.Core.Aspects.PostSharp.ValidationAspects
 {
     [Serializable]
    public class FluentValidationAspect:OnMethodBoundaryAspect
