@@ -35,8 +35,8 @@ namespace DevFramework.Northwind.Business.Concrete.Managers
             _productDal.Add(product);
             return product;
         }
-        [CacheAspect(typeof(MemoryCacheManager),60)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+      //  [CacheAspect(typeof(MemoryCacheManager),60)]
+       // [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [LogAspect(typeof(DatabaseLogger))]
         [LogAspect(typeof(FileLogger))]
         public List<Product> GetAll()

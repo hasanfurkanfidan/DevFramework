@@ -12,6 +12,10 @@ namespace Devframework.Northwind.Web.Controllers
     {
         // GET: Product
         private readonly IProductService _productService;
+        public ProductController(IProductService productService)
+        {
+            _productService = productService;
+        }
         public ActionResult Index()
         {
             var model = new ProductListViewModel

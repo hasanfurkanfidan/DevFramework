@@ -15,7 +15,11 @@ namespace DevFramework.Core.CrossCuttingConcerns.Logging.Log4Net.Layouts
     {
         public override void ActivateOptions()
         {
-            throw new NotImplementedException();
+            try { throw new NotImplementedException(); }
+            catch
+            {
+
+            }
         }
 
         public override void Format(TextWriter writer, LoggingEvent loggingEvent)
