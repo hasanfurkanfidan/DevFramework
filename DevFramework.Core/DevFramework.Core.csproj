@@ -112,9 +112,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aspects\PostSharp\AuthorizationAspects\SecuredOperation.cs" />
     <Compile Include="Aspects\PostSharp\CacheAspect\CacheAspect.cs" />
     <Compile Include="Aspects\PostSharp\CacheAspect\CacheRemoveAspect.cs" />
+    <Compile Include="Aspects\PostSharp\ExceptionAspects\ExceptionLogAspect.cs" />
     <Compile Include="Aspects\PostSharp\LogAspects\LogAspect.cs" />
+    <Compile Include="Aspects\PostSharp\PerformansAspects\PerformanceCounterAspect.cs" />
     <Compile Include="Aspects\PostSharp\ValidationAspects\FluentValidationAspect.cs" />
     <Compile Include="Aspects\PostSharp\TransactionAspects\TransactionScopeAspect.cs" />
     <Compile Include="CrossCuttingConcerns\Cachings\ICacheManager.cs" />
@@ -126,6 +129,9 @@
     <Compile Include="CrossCuttingConcerns\Logging\Log4Net\SerializeableLogEvent.cs" />
     <Compile Include="CrossCuttingConcerns\Logging\LogDetail.cs" />
     <Compile Include="CrossCuttingConcerns\Logging\LogParameter.cs" />
+    <Compile Include="CrossCuttingConcerns\Security\Identity.cs" />
+    <Compile Include="CrossCuttingConcerns\Security\Web\AuthenticationHelper.cs" />
+    <Compile Include="CrossCuttingConcerns\Security\Web\SecurityUtilities.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\FluentValidation\ValidatorTool.cs" />
     <Compile Include="DataAccess\EntityFramework\EfEntityRepositoryBase.cs" />
     <Compile Include="DataAccess\EntityFramework\EfQueryableRepository.cs" />

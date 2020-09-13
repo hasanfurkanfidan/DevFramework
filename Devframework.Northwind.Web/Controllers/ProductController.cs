@@ -1,4 +1,5 @@
-﻿using Devframework.Northwind.Web.Models.ViewModels;
+﻿using Devframework.Northwind.Web.Models.AddViewModels;
+using Devframework.Northwind.Web.Models.ViewModels;
 using DevFramework.Northwind.Business.Abstract;
 using System;
 using System.Collections.Generic;
@@ -24,5 +25,17 @@ namespace Devframework.Northwind.Web.Controllers
             };
             return View(model);
         }
+        public ActionResult Add()
+        {
+            _productService.Add(new DevFramework.Northwind.Entities.Concrete.Product
+            {
+                ProductName = "Computer",
+                CategoryId = 1,
+                QuantityPerUnit = "ABC",
+                UnitPrice = 4500
+            });
+            return View();
+        }
+
     }
 }

@@ -18,9 +18,11 @@ using DevFramework.Core.Aspects.PostSharp.CacheAspect;
 using DevFramework.Core.CrossCuttingConcerns.Cachings.Microsoft;
 using DevFramework.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using DevFramework.Core.Aspects.PostSharp.LogAspects;
+using DevFramework.Core.Aspects.PostSharp.AuthorizationAspects;
 
 namespace DevFramework.Northwind.Business.Concrete.Managers
 {
+    
     public class ProductManager : IProductService
     {
         private readonly IProductDal _productDal;
@@ -31,14 +33,13 @@ namespace DevFramework.Northwind.Business.Concrete.Managers
         [FluentValidationAspect(typeof(ProductValidator))]
         public Product Add(Product product)
         {
-            
             _productDal.Add(product);
             return product;
         }
-      //  [CacheAspect(typeof(MemoryCacheManager),60)]
+        [CacheAspect(typeof(MemoryCacheManager),60)]
        // [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [LogAspect(typeof(DatabaseLogger))]
-        [LogAspect(typeof(FileLogger))]
+        [SecuredOperation(Roles="Admin,Editor")]
         public List<Product> GetAll()
         {
             return _productDal.GetList();

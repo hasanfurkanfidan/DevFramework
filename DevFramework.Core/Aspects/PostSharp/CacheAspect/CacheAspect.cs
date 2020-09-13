@@ -24,7 +24,15 @@ namespace DevFramework.Core.Aspects.PostSharp.CacheAspect
         {
             if (typeof(ICacheManager).IsAssignableFrom(_cacheType))
             {
-                throw new Exception("Wrong Cache Manager");
+                try
+                {
+                    throw new Exception("Wrong Cache Manager");
+                }
+                catch
+                {
+
+                }
+                
 
             }
             _cacheManager = (ICacheManager)Activator.CreateInstance(_cacheType);
