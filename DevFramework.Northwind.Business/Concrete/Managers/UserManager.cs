@@ -1,4 +1,5 @@
 ﻿using DevFramework.Northwind.Business.Abstract;
+using DevFramework.Northwind.Business.Mapping;
 using DevFramework.Northwind.DataAccess.Abstract;
 using DevFramework.Northwind.Entities.Concrete;
 using System;
@@ -18,12 +19,12 @@ namespace DevFramework.Northwind.Business.Concrete.Managers
         }
         public User GetByUserNameAndPassword(string userName, string password)
         {
-            return _userDal.Get(p => p.UserName == userName && p.Password == password);
+            return MyMapper.MapToSameType(_userDal.Get(p => p.UserName == userName &&p.Password==password));
         }
 
         public List<Entities.ComplexTypes.UserRole> GetUserRoles(User user)
         {
-           return _userDal.GetUserRoles(user);
+            return MyMapper.MapToSameType(_userDal.GetUserRoles(user));
         }
     }
 }

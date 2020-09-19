@@ -19,6 +19,8 @@ using DevFramework.Core.CrossCuttingConcerns.Cachings.Microsoft;
 using DevFramework.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using DevFramework.Core.Aspects.PostSharp.LogAspects;
 using DevFramework.Core.Aspects.PostSharp.AuthorizationAspects;
+using AutoMapper;
+using DevFramework.Northwind.Business.Mapping;
 
 namespace DevFramework.Northwind.Business.Concrete.Managers
 {
@@ -39,10 +41,10 @@ namespace DevFramework.Northwind.Business.Concrete.Managers
         [CacheAspect(typeof(MemoryCacheManager),60)]
        // [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [LogAspect(typeof(DatabaseLogger))]
-        [SecuredOperation(Roles="Admin,Editor")]
+        [SecuredOperation(Roles="Admin,Editor,Student")]
         public List<Product> GetAll()
         {
-            return _productDal.GetList();
+           return MyMapper.MapToSameTypeList(_productDal.GetList());
         }
 
         public Product GetById(int id)
@@ -65,7 +67,7 @@ namespace DevFramework.Northwind.Business.Concrete.Managers
         public Product Update(Product product)
         {
             
-            return _productDal.Update(product);
+            return _productDal.Update(MyMapper.MapToSameType(product));
 
         }
     }
