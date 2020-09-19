@@ -22,7 +22,9 @@ namespace DevFramework.Northwind.DataAccess.Concrete.EntityFramework
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
-
-
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<DevFramework.Northwind.Entities.Concrete.UserRole> UserRoles { get; set; }
+        public DbSet<User> Users { get; set; }
+        
     }
 }

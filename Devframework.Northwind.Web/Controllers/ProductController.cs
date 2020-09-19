@@ -1,5 +1,6 @@
 ﻿using Devframework.Northwind.Web.Models.AddViewModels;
 using Devframework.Northwind.Web.Models.ViewModels;
+using DevFramework.Core.Aspects.PostSharp.AuthorizationAspects;
 using DevFramework.Northwind.Business.Abstract;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace Devframework.Northwind.Web.Controllers
         {
             _productService = productService;
         }
+        [SecuredOperation(Roles ="Admin,Editor")]
         public ActionResult Index()
         {
             var model = new ProductListViewModel
